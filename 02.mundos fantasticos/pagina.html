@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Generador de Mundos Fantásticos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Generador de Mundos Fantásticos</h1>
+    <button onclick="generarMundo()">¡Generar Mundo!</button>
+    <div id="resultados"></div>
+    <button onclick="mostrarSelectorPersonaje()" id="btnSelPers" style="display:block;">Seleccionar personaje</button>
+    <div id="selectorPersonaje" style="display:none;">
+        <select id="personajeSelect"></select>
+        <button onclick="verAtributosPersonaje()">Ver atributos</button>
+    </div>
+    <div id="atributosPersonaje"></div>
+    <script src="script.js"></script>
+</body>
+</html>
