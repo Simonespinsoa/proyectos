@@ -1,0 +1,93 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    margin: 0;
+    padding: 0;
+    color: #f7f7f7;
+}
+header {
+    background: #6a3093;
+    background: linear-gradient(120deg, #a044ff, #6a3093);
+    color: #fff;
+    padding: 2rem 1rem 1rem 1rem;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 6px 24px rgba(30,0,60,0.17);
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+}
+button {
+    background: #f7971e;
+    color: #fff;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    box-shadow: 0 2px 12px rgba(247,151,30,0.2);
+    letter-spacing: 1px;
+    transition: background 0.3s;
+}
+button:hover {
+    background: #ffd200;
+    color: #232526;
+}
+#resultados {
+    background: rgba(255,255,255,0.11);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(44, 62, 80, 0.13);
+    padding: 2rem;
+    min-height: 200px;
+    width: 95%;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    color: #f7f7f7;
+}
+h3 {
+    color: #ffd200;
+    margin-top: 1.5em;
+}
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #222;
+    border-top: 1px solid #444;
+    font-size: 0.96rem;
+    color: #bbb;
+    letter-spacing: 2px;
+}
+ul {
+    padding-left: 1.2em;
+}
+li {
+    margin-bottom: 0.4em;
+}
+label {
+    font-size: 1.1em;
+    color: #ffd200;
+}
+select {
+    font-size: 1em;
+    margin-top: 0.5em;
+    padding: 0.3em 1.2em;
+    border-radius: 10px;
+    background: #232526;
+    color: #ffd200;
+    border: 1px solid #ffd200;
+    min-width: 220px;
+}
+#atributosAliados {
+    color: #ffd200;
+    background: #232526;
+    border-radius: 10px;
+    padding: 1em;
+    margin-top: 1em;
+    box-shadow: 0 2px 12px rgba(247,151,30,0.14);
+}
