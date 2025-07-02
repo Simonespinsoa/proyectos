@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Explora Tu Universo Interior</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-tr from-indigo-900 via-purple-900 to-pink-700 min-h-screen flex flex-col">
+  <!-- HEADER -->
+  <header class="flex flex-col items-center justify-center py-10">
+    <h1 class="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg text-center">🌌 Explora Tu Universo Interior</h1>
+    <p class="text-xl text-indigo-200 mt-4 text-center max-w-2xl">
+      Descubre tus emociones, crea tu propia constelación y reflexiona sobre tu día. Una experiencia interactiva y personal hecha con <span class="text-pink-400 font-semibold">HTML</span> + <span class="text-pink-400 font-semibold">Tailwind</span> + <span class="text-pink-400 font-semibold">JS</span>.
+    </p>
+  </header>
+
+  <main class="flex-grow flex flex-row w-full">
+    <!-- LEFT SIDEBAR -->
+    <aside class="hidden md:flex flex-col w-1/5 items-center p-6 gap-6">
+      <!-- Inspirational Quote -->
+      <div class="bg-white/30 backdrop-blur-md p-4 rounded-2xl shadow-lg text-white text-center">
+        <h3 class="font-semibold mb-2">✨ Frase del Día</h3>
+        <blockquote id="quoteText" class="italic">"El universo está dentro de ti."</blockquote>
+        <button onclick="randomQuote()" class="mt-2 text-xs bg-indigo-500 hover:bg-pink-500 text-white px-2 py-1 rounded">Otra frase</button>
+      </div>
+      <!-- Mini Weather Widget -->
+      <div class="bg-white/30 backdrop-blur-md p-4 rounded-2xl shadow-lg text-white text-center min-w-[120px]">
+        <h3 class="font-semibold mb-2">🌦️ Clima</h3>
+        <div id="weatherWidget">
+          <div class="text-2xl">⏳</div>
+          <div class="text-sm mt-1">Cargando...</div>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div class="bg-white/30 backdrop-blur-md p-4 rounded-2xl shadow-lg text-white text-center">
+        <h3 class="font-semibold mb-2">🔗 Enlaces rápidos</h3>
+        <ul class="text-sm space-y-1">
+          <li><a href="https://www.nasa.gov/" target="_blank" class="hover:underline text-indigo-100">NASA</a></li>
+          <li><a href="https://www.headspace.com/" target="_blank" class="hover:underline text-indigo-100">Meditación</a></li>
+          <li><a href="https://openai.com/dall-e-3/" target="_blank" class="hover:underline text-indigo-100">Imágenes IA</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <section class="flex-1 flex flex-col items-center justify-center">
+      <!-- EMOTION SELECTOR -->
+      <section class="bg-white/30 backdrop-blur-md rounded-2xl p-8 shadow-2xl w-[90vw] max-w-lg mb-10 mt-8">
+        <h2 class="text-2xl font-semibold text-white mb-4">¿Cómo te sientes hoy?</h2>
+        <div id="emotions" class="flex flex-wrap gap-4 justify-center"></div>
+        <div id="emotionResult" class="mt-4 text-xl text-white font-bold text-center"></div>
+      </section>
+
+      <!-- CONSTELLATION CREATOR -->
+      <section class="bg-white/30 backdrop-blur-lg rounded-2xl p-8 shadow-2xl w-[90vw] max-w-lg mb-10">
+        <h2 class="text-2xl font-semibold text-white mb-4">Crea tu constelación</h2>
+        <div id="starCanvasContainer" class="relative flex justify-center items-center">
+          <canvas id="starCanvas" width="320" height="320" class="rounded-lg border-2 border-indigo-400 shadow-md bg-black"></canvas>
+          <button onclick="clearConstellation()" class="absolute top-2 right-2 bg-indigo-600 hover:bg-pink-500 text-white px-3 py-1 rounded-full text-sm shadow">Limpiar</button>
+        </div>
+        <p class="text-white text-center mt-3 text-sm">Haz clic en el espacio para añadir estrellas y crea tu figura única.</p>
+      </section>
+
+      <!-- REFLECTION JOURNAL -->
+      <section class="bg-white/30 backdrop-blur-lg rounded-2xl p-8 shadow-2xl w-[90vw] max-w-lg mb-8">
+        <h2 class="text-2xl font-semibold text-white mb-4">Reflexión del día</h2>
+        <textarea id="reflection" rows="3" class="w-full rounded-xl p-3 text-indigo-900 text-base focus:outline-none focus:ring-2 focus:ring-indigo-400 resize-none" placeholder="Escribe aquí tu pensamiento o meta..."></textarea>
+        <button onclick="saveReflection()" class="mt-3 bg-pink-600 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg shadow font-bold">Guardar</button>
+        <div id="reflectionResult" class="mt-3 text-white"></div>
+      </section>
+    </section>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="hidden md:flex flex-col w-1/5 items-center p-6 gap-6">
+      <!-- Daily Challenge -->
+      <div class="bg-white/30 backdrop-blur-md p-4 rounded-2xl shadow-lg text-white text-center">
+        <h3 class="font-semibold mb-2">🧩 Reto Diario</h3>
+        <div id="dailyChallenge" class="text-sm">Haz una buena acción hoy.<br><button onclick="randomChallenge()" class="mt-2 text-xs bg-indigo-500 hover:bg-pink-500 text-white px-2 py-1 rounded">Nuevo reto</button></div>
+      </div>
+      <!-- Mood History -->
+      <div class="bg-white/30 backdrop-blur-md p-4 rounded-2xl shadow-lg text-white text-center">
+        <h3 class="font-semibold mb-2">📅 Historial de Ánimo</h3>
+        <div id="moodHistory" class="text-xs">Aún no hay registro.</div>
+      </div>
+      <!-- Fun Fact -->
+      <div class="bg-white/30 backdrop-blur-md p-4 rounded-2xl shadow-lg text-white text-center">
+        <h3 class="font-semibold mb-2">🌠 Dato Curioso</h3>
+        <div id="funFact" class="text-xs">El Sol es 330,000 veces más pesado que la Tierra.</div>
+        <button onclick="randomFact()" class="mt-2 text-xs bg-indigo-500 hover:bg-pink-500 text-white px-2 py-1 rounded">Otro dato</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="text-center text-indigo-100 py-6 text-sm">
+    Creado por un Senior HTML Dev &middot; Tailwind + Vanilla JS &middot; 2025
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
