@@ -1,3 +1,6 @@
+/ =======================
+// Cubo WebGL Interactivo
+// =======================
 function initWebGLCube() {
   const canvas = document.getElementById('webgl-cube');
   if (!canvas || !canvas.getContext) return;
