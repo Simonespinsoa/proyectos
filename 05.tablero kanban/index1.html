@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero Kanban Mejorado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Tablero Kanban</h1>
+    <div class="board">
+        <div class="column">
+            <h2>ToDo <span class="counter"></span></h2>
+            <button class="add-task-btn" data-column-id="todo">Añadir Tarea</button>
+            <div class="task-list" id="todo"></div>
+        </div>
+        <div class="column">
+            <h2>En Progreso <span class="counter"></span></h2>
+            <button class="add-task-btn" data-column-id="inprogress">Añadir Tarea</button>
+            <div class="task-list" id="inprogress"></div>
+        </div>
+        <div class="column">
+            <h2>Hecho <span class="counter"></span></h2>
+            <button class="add-task-btn" data-column-id="done">Añadir Tarea</button>
+            <div class="task-list" id="done"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
